@@ -13,10 +13,27 @@
         {
             // stwórz obiekt klasy Random - grenerator liczb losowych
             Random r = new Random();
-            // wylosuj liczbę z zakresu od 1 do 6
-            int diceRoll = r.Next(1, 7);
+            //domyślnie losuj K6
+            int diceRoll = 6;
+            // sprawdź, który guzik jest zaznaczony
+            if(K4.IsChecked)
+            {
+                diceRoll = r.Next(1, 5);
+            }
+            if (K6.IsChecked)
+            {
+                diceRoll = r.Next(1, 7);
+            }
+            if (K10.IsChecked)
+            {
+                diceRoll = r.Next(1, 11);
+            }
+            if (K12.IsChecked)
+            {
+                diceRoll = r.Next(1, 13);
+            }
             // wyświetl wynik w guziku
-            CounterBtn.Text = "Wynik rzutu: " + diceRoll.ToString();
+            RollLabel.Text = "Wynik rzutu: " + diceRoll.ToString();
         }
     }
 
